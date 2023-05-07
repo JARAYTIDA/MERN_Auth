@@ -8,12 +8,14 @@ import { FetchFromAPI } from '../utils/FetchFromAPI';
 const Feed = () => {
 
     const [selectedCategory, setSelectedCategory] = useState('New');
+    const [videos, setVideos] = useState([])
 
     {/* also passing some dependencies in use effect in array [] */}
     {/* [] meaning that the code inside useEffect function onlu run when we refresh the page */}
     {/* if we pass selectedCategory in [] then it will run when we select a category */}
     useEffect ( () => {
-        FetchFromAPI(`search?part=snippet&q=${selectedCategory}`);
+        FetchFromAPI(`search?part=snippet&q=${selectedCategory}`)
+        .then((data) => setVideos(data.items))
     }, [selectedCategory]);
 
     return (
@@ -34,7 +36,7 @@ const Feed = () => {
                         videos
                     </span>
                 </Typography>
-                <Videos videos = {[]}/>
+                <Videos videos = {videos}/>
             </Box>
         </Stack>
     )
