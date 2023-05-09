@@ -4,13 +4,13 @@ import { Link } from "react-router-dom"
 import { demoProfilePicture } from "../utils/constants"
 
 const ChannelCard = ({channelDetail, marginTop}) => (
-    <Box sx={{boxShadow:'none', borderRadius:'20px', width:{md:'350px', xs:'450px'}, display:'flex', justifyContent:'center', alignItems:'center', margin:'auto', height:'auto', marginTop}}>
+    <Box sx={{boxShadow:'none', borderRadius:'20px', width: {xs:'100%',sm:'358px', md:'320px',}, display:'flex', justifyContent:'center', alignItems:'center', margin:'auto', height:'auto', marginTop}}>
         <Link to={`/channel/${channelDetail?.id?.channelId}`}>
             <CardContent sx={{display:'flex', flexDirection:'column', justifyContent:'center', textAlign:'center', color:'#fff', }}>
                 <CardMedia
                     image={channelDetail?.snippet?.thumbnails?.high?.url || demoProfilePicture}
                     alt={channelDetail?.snippet?.title}
-                    sx={{ borderRadius: '50%', height: '180px', width: '180px', mb: 2, border: '1px solid #e3e3e3' }}
+                    sx={{ borderRadius: '50%', height: '180px', width: '180px', mb: 2, border: '1px solid #e3e3e3',  }}
                 />
 
                 <Typography variant="h6" fontWeight='bold' color='#fff'>
